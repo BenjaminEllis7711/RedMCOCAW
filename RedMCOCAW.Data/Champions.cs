@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace RedMCOCAW.Models
+namespace RedMCOCAW.Data
 {
     public class Champions
     {
