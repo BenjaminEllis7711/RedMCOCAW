@@ -6,11 +6,10 @@ using System.Web;
 
 namespace RedMCOCAW.Data
 {
-    public class Nodes
+    public class Node
     {
         [Key]
         public int NodeId { get; set; }
-        public string Details { get; set; }
-        public int RosterId { get; set; }
+        public string Details { get; set; }        
     }
 }

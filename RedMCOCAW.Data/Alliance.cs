@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace RedMCOCAW.Models
+namespace RedMCOCAW.Data
 {
-    public class AllianceMembers
+    public class Alliance
     {
         [Key]
-        public int MemberId { get; set; }
+        public int AllianceId { get; set; }
         [Required]
-        public string Name { get; set; }
         public string AllianceTag { get; set; }
         public string Notes { get; set; }
+
+        public virtual ICollection<Member> Members { get; set; } = new List<Member>();
+
     }
 }
