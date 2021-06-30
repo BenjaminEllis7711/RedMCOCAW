@@ -5,19 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedMCOCAW.Data
+
+namespace RedMCOCAW.Models.Alliance
 {
-    public class Alliance
+    public class AllianceListItem
     {
-        [Key]
-        public int AllianceId { get; set; }
         [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
+        public int AllianceId { get; set; }        
         public string AllianceTag { get; set; }
         public string Notes { get; set; }
-
-        public virtual ICollection<Member> Members { get; set; } = new List<Member>();
-
+        public List<RedMCOCAW.Data.Member> Members { get; set; }
     }
 }

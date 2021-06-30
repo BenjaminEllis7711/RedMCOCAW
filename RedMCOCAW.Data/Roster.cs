@@ -23,6 +23,8 @@ namespace RedMCOCAW.Data
         [ForeignKey(nameof(Node))]
         public int? NodeId { get; set; }
         public virtual Node Node { get; set; }
+        [Required]
+        public Guid OwnerId { get; set; }
 
         public bool IsAssigned
         {

@@ -13,11 +13,14 @@ namespace RedMCOCAW.Data
         [Key]
         public int MemberId { get; set; }
         [Required]
+        public Guid OwnerId { get; set; }
+        [Required]
         [ForeignKey(nameof(Alliance))]
         public int AllianceId { get; set; }
         public virtual Alliance Alliance { get; set; }
         [Required]
         public string Name { get; set; }
         public string Notes { get; set; }
+        public virtual ICollection<Roster> Roster { get; set; }
     }
 }

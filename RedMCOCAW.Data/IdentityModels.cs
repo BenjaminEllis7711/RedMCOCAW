@@ -26,13 +26,17 @@ namespace RedMCOCAW.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<Alliance> Alliances { get; set; }
+        public DbSet<Roster> Rosters { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Node> Nodes { get; set; }
+        public DbSet<Champion> Champions { get; set; }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
 
-        // Add DbSets
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
