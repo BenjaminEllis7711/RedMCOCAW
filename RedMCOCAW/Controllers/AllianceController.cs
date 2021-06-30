@@ -11,9 +11,9 @@ namespace RedMCOCAW.Controllers
     public class AllianceController : Controller
     {
         // GET: Alliance
-        public ActionResult Index()
+        public ActionResult Index()        
         {
-            var model = new AllianceListItem();
+            var model = new AllianceListItem[0];
             return View(model);
         }
     }
