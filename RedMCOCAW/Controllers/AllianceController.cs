@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RedMCOCAW.Models.Alliance;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,8 @@ namespace RedMCOCAW.Controllers
         // GET: Alliance
         public ActionResult Index()
         {
-            return View();
+            var model = new AllianceListItem();
+            return View(model);
         }
     }
 }
