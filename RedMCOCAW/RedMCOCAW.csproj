@@ -238,6 +238,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Alliance\Index.cshtml" />
     <Content Include="Views\Alliance\Create.cshtml" />
+    <Content Include="Views\Alliance\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
