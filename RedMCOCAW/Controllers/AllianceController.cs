@@ -1,4 +1,6 @@
-﻿using RedMCOCAW.Models.Alliance;
+﻿using Microsoft.AspNet.Identity;
+using RedMCOCAW.Models.Alliance;
+using RedMCOCAW.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,10 @@ namespace RedMCOCAW.Controllers
         // GET: Alliance
         public ActionResult Index()        
         {
-            var model = new AllianceListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new AllianceService(userId);
+            var model = service.GetAlliances();
+
             return View(model);
         }
 
