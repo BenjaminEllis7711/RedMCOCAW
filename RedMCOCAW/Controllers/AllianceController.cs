@@ -16,5 +16,11 @@ namespace RedMCOCAW.Controllers
             var model = new AllianceListItem[0];
             return View(model);
         }
+
+        // Get: Create
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

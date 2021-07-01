@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alliance\AllianceCreate.cs" />
+    <Compile Include="Alliance\AllianceDetail.cs" />
     <Compile Include="Alliance\AllianceListItem.cs" />
     <Compile Include="Champion\ChampionListItem.cs" />
     <Compile Include="Member\MemberListItem.cs" />
