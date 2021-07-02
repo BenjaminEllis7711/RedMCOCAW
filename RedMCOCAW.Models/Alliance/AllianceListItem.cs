@@ -14,6 +14,7 @@ namespace RedMCOCAW.Models.Alliance
         public int AllianceId { get; set; }        
         public string AllianceTag { get; set; }
         public string Notes { get; set; }
-        public List<RedMCOCAW.Data.Member> Members { get; set; }
+        [Display(Name = "Number of Members in Alliance")]
+        public int MemberCount { get; set; }
     }
 }

@@ -26,7 +26,7 @@
             @Html.DisplayNameFor(model => model.AllianceTag)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Members)
+            @Html.DisplayNameFor(model => model.MemberCount)
     </th>
     <th></th>
 </tr>
@@ -43,11 +43,11 @@
                 @Html.DisplayFor(modelItem => item.AllianceTag)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Members)
+                @Html.DisplayFor(modelItem => item.MemberCount)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.AllianceId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.AllianceId }) |
+            @Html.ActionLink("Detail", "Detail", new { id = item.AllianceId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.AllianceId })
         </td>
     </tr>

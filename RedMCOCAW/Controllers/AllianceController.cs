@@ -46,10 +46,19 @@ namespace RedMCOCAW.Controllers
         }
 
         // Get: Edit
-        public ActionResult Edit(AllianceCreate model)
-        {
+        //public ActionResult Edit(AllianceCreate model)
+        //{
 
+        //}
+
+        public ActionResult Detail(int id)
+        {
+            var svc = CreateAllianceService();
+            var model = svc.GetAllianceById(id);
+
+            return View(model);
         }
+
         private AllianceService CreateAllianceService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

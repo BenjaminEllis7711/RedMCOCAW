@@ -8,10 +8,10 @@ namespace RedMCOCAW.Models.Alliance
 {
     public class AllianceDetail
     {
-        public int AllianceId { get; set; }        
-        public Guid OwnerId { get; set; }        
+        public int AllianceId { get; set; }     
         public string AllianceTag { get; set; }
         public string Notes { get; set; }
+        public List<string> Members { get; set; }
 
     }
 }
