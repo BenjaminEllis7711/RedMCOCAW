@@ -10,6 +10,8 @@ namespace RedMCOCAW.Models.Alliance
     public class AllianceEdit
     {
         [Required]
+        public int AllianceId { get; set; }
+        [Required]
         [MinLength(2, ErrorMessage = "Tag must be atleast 2 characters long")]
         [MaxLength(6, ErrorMessage = "Tag must be six characters or less")]
         public string AllianceTag { get; set; }

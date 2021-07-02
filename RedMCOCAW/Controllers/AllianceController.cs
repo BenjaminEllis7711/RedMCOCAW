@@ -46,10 +46,41 @@ namespace RedMCOCAW.Controllers
         }
 
         // Get: Edit
-        //public ActionResult Edit(AllianceCreate model)
-        //{
+        public ActionResult Edit(int id)
+        {
+            var svc = CreateAllianceService();
+            var detail = svc.GetAllianceById(id);
+            var model = new AllianceEdit
+            {
+                AllianceId = detail.AllianceId,
+                AllianceTag = detail.AllianceTag,
+                Notes = detail.Notes
+            };
+            return View(model);
+        }
 
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, AllianceEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.AllianceId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var svc = CreateAllianceService();
+            if(svc.EditAlliance(model))
+            {
+                TempData["SaveResult"] = "You alliance was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your alliance could not be updated.");
+            return View(model);
+        }
 
         public ActionResult Detail(int id)
         {
@@ -59,6 +90,30 @@ namespace RedMCOCAW.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateAllianceService();
+            var model = svc.GetAllianceById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteAlliance(int id)
+        {
+            var svc = CreateAllianceService();
+            svc.DeleteAlliance(id);
+            TempData["SaveResult"] = "Your note was deleted";
+            return RedirectToAction("Index");
+        }
+
+        
+        
+        
+        
         private AllianceService CreateAllianceService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

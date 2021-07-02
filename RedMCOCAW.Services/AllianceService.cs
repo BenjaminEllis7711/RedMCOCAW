@@ -36,7 +36,18 @@ namespace RedMCOCAW.Services
 
         public bool EditAlliance(AllianceEdit model)
         {
-            return true;
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Alliances
+                    .Single(e => e.AllianceId == model.AllianceId && e.OwnerId == _userId);
+
+                entity.AllianceTag = model.AllianceTag;
+                entity.Notes = model.Notes;                              
+
+                return ctx.SaveChanges() == 1;
+            }
         }
 
         public IEnumerable<AllianceListItem> GetAlliances()
@@ -76,6 +87,19 @@ namespace RedMCOCAW.Services
                         Notes = entity.Notes
                         // Members
                     };
+            }
+        }
+
+        public bool DeleteAlliance(int allianceId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Alliances
+                    .Single(e => e.AllianceId == allianceId && e.OwnerId == _userId);
+                ctx.Alliances.Remove(entity);
+                return ctx.SaveChanges() == 1;
             }
         }
     }
