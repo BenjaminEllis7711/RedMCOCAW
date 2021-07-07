@@ -106,7 +106,7 @@ namespace RedMCOCAW.Controllers
         {
             var svc = CreateAllianceService();
             svc.DeleteAlliance(id);
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your alliance was deleted";
             return RedirectToAction("Index");
         }
 

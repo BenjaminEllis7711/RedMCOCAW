@@ -10,7 +10,7 @@ namespace RedMCOCAW.Services
 {
     public class AllianceService
     {
-        private readonly Guid _userId;
+        private readonly Guid _userId; // Field to hold guid from logged in user
 
         public AllianceService(Guid userId)
         {
