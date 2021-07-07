@@ -51,9 +51,12 @@
     <Compile Include="Member\MemberCreate.cs" />
     <Compile Include="Member\MemberDetail.cs" />
     <Compile Include="Member\MemberListItem.cs" />
+    <Compile Include="NodeRoster\NodeRosterModel.cs" />
     <Compile Include="Node\NodeCreate.cs" />
     <Compile Include="Node\NodeListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roster\RosterCreate.cs" />
+    <Compile Include="Roster\RosterDetail.cs" />
     <Compile Include="Roster\RosterListItem.cs" />
   </ItemGroup>
   <ItemGroup />

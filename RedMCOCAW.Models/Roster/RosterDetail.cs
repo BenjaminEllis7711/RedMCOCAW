@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedMCOCAW.Models.Roster
 {
-    public class RosterListItem
+    public class RosterDetail
     {
         [Required]
         public int MemberId { get; set; }
@@ -15,5 +15,7 @@ namespace RedMCOCAW.Models.Roster
         public int ChampionId { get; set; }
         public int? NodeAssignmentId { get; set; }
         public bool IsAssigned { get; set; }
+        public string MemberName { get; set; }
+        public string ChampName { get; set; }
     }
 }

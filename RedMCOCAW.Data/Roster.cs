@@ -19,7 +19,7 @@ namespace RedMCOCAW.Data
         public int ChampionId { get; set; }
         public virtual Champion Champion { get; set; }
         
-        public int? NodeId { get; set; }
+        public int? NodeAssignmentId { get; set; }
         
         [Required]
         public Guid OwnerId { get; set; }
@@ -28,7 +28,7 @@ namespace RedMCOCAW.Data
         {
             get
             {
-                if (NodeId == null) return false;
+                if (NodeAssignmentId == null) return false;
                 else return true;
             }
         }

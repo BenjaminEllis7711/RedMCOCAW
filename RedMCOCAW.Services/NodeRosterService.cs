@@ -67,7 +67,7 @@ namespace RedMCOCAW.Services
             }
         }
 
-        public NodeRosterModel GetNodeRosterById(int id)
+        public NodeRosterModel GetNodeRosterByNodeId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
