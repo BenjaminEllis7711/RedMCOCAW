@@ -31,6 +31,7 @@ namespace RedMCOCAW.Data
         public DbSet<Member> Members { get; set; }
         public DbSet<Node> Nodes { get; set; }
         public DbSet<Champion> Champions { get; set; }
+        public DbSet<NodeRoster> NodeRosters { get; set; }
 
         public static ApplicationDbContext Create()
         {
