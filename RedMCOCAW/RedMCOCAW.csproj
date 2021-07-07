@@ -172,6 +172,7 @@
     <Compile Include="Controllers\AllianceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +242,7 @@
     <Content Include="Views\Alliance\Detail.cshtml" />
     <Content Include="Views\Alliance\Edit.cshtml" />
     <Content Include="Views\Alliance\Delete.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

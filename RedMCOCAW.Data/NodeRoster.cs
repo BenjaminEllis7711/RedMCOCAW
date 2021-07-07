@@ -11,13 +11,11 @@ namespace RedMCOCAW.Data
     public class NodeRoster
     {
         [Key, Column(Order = 0)]
-        [ForeignKey(nameof(Node))]
-        public int NodeId { get; set; }
+        public int NodeId { get; set; }        
         public virtual Node Node { get; set; }
 
         [Key, Column(Order = 1)]
-        [ForeignKey(nameof(Roster))]
-        public int NodeAssignmentId { get; set; }
+        public int NodeAssignmentId { get; set; }        
         public virtual Roster Roster { get; set; }
     }
 }
