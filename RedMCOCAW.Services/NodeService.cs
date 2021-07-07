@@ -1,5 +1,5 @@
 ﻿using RedMCOCAW.Data;
-using RedMCOCAW.Models.Champion;
+using RedMCOCAW.Models.Node;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,93 +8,92 @@ using System.Threading.Tasks;
 
 namespace RedMCOCAW.Services
 {
-    public class ChampionService
+    public class NodeService
     {
-        private readonly Guid _userId; // Field to hold guid from logged in user
+        private readonly Guid _userId; 
 
-        public ChampionService(Guid userId)
+        public NodeService(Guid userId)
         {
             _userId = userId;
         }
 
-
-        public bool CreateChampion(ChampionCreate model)
+        public bool CreateNode(NodeCreate model)
         {
-            var entity = new Champion()
+            var entity = new Node()
             {
                 OwnerId = _userId,
-                ChampId = model.ChampId,
-                Name = model.Name
+                NodeId = model.NodeId,
+                Details = model.Details
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Champions.Add(entity);
+                ctx.Nodes.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool EditChampion(ChampionListItem model)
+        public bool EditNode(NodeListItem model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Champions
-                    .Single(e => e.ChampId == model.ChampId && e.OwnerId == _userId);
+                    .Nodes
+                    .Single(e => e.NodeId == model.NodeId);
 
-                entity.ChampId = model.ChampId;
-                entity.Name = model.Name;
+                entity.NodeId = model.NodeId;
+                entity.Details = model.Details;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<ChampionListItem> GetChampions()
+        public IEnumerable<NodeListItem> GetNodes()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Champions
+                    .Nodes
                     .Where(e => e.OwnerId == _userId)
                     .Select(
                         e =>
-                        new ChampionListItem
+                        new NodeListItem
                         {
-                            ChampId = e.ChampId,
-                            Name = e.Name
+                            NodeId = e.NodeId,
+                            Details = e.Details
                         });
                 return query.ToArray();
             }
         }
 
-        public ChampionListItem GetChampionById(int id)
+        public NodeListItem GetNodeById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Champions
-                    .Single(e => e.ChampId == id);
+                    .Nodes
+                    .Single(e => e.NodeId == id);
                 return
-                    new ChampionListItem
+                    new NodeListItem
                     {
-                        ChampId = entity.ChampId,
-                        Name = entity.Name
+                        NodeId = entity.NodeId,
+                        Details = entity.Details
                     };
             }
         }
 
-        public bool DeleteChampion(int id)
+        public bool DeleteNode(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Champions
-                    .Single(e => e.ChampId == id);
-                ctx.Champions.Remove(entity);
+                    .Nodes
+                    .Single(e => e.NodeId == id);
+                ctx.Nodes.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

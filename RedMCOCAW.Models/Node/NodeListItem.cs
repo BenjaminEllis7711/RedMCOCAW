@@ -10,7 +10,7 @@ namespace RedMCOCAW.Models.Node
     public class NodeListItem
     {
         [Required]
-        public int NodeId { get; set; }
+        public int NodeId { get; set; }        
         public string Details { get; set; }
     }
 }

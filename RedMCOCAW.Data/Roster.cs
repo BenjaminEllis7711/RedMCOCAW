@@ -18,11 +18,9 @@ namespace RedMCOCAW.Data
         [ForeignKey(nameof(Champion))]
         public int ChampionId { get; set; }
         public virtual Champion Champion { get; set; }
-
-        [Key, Column(Order = 2)]
-        [ForeignKey(nameof(Node))]
+        
         public int? NodeId { get; set; }
-        public virtual Node Node { get; set; }
+        
         [Required]
         public Guid OwnerId { get; set; }
 
@@ -30,7 +28,7 @@ namespace RedMCOCAW.Data
         {
             get
             {
-                if (Node == null) return false;
+                if (NodeId == null) return false;
                 else return true;
             }
         }

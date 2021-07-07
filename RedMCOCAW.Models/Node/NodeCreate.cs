@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace RedMCOCAW.Data
+namespace RedMCOCAW.Models.Node
 {
-    public class Node
+    public class NodeCreate
     {
-        [Key]
+        [Required]
         public int NodeId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
-        public string Details { get; set; }        
+        public string Details { get; set; }
     }
 }
