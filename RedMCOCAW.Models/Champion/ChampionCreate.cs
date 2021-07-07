@@ -9,7 +9,7 @@ namespace RedMCOCAW.Models.Champion
 {
     public class ChampionCreate
     {
-        [Required]
+        
         public Guid OwnerId { get; set; }
         [Required]
         public int ChampId { get; set; }

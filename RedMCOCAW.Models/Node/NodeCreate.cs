@@ -11,7 +11,7 @@ namespace RedMCOCAW.Models.Node
     {
         [Required]
         public int NodeId { get; set; }
-        [Required]
+        
         public Guid OwnerId { get; set; }
         public string Details { get; set; }
     }

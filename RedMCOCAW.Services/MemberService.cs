@@ -21,15 +21,15 @@ namespace RedMCOCAW.Services
         {
             var entity = new Member()
             {
-                OwnerId = _userId,
-                MemberId = model.MemberId,
-                AllianceId = model.AllianceId,
+                OwnerId = _userId,                
                 Name = model.Name,
                 Notes = model.Notes
             };
 
             using (var ctx = new ApplicationDbContext())
             {
+                var findAllianceId = ctx.Alliances.Single(e => e.AllianceTag == model.AllianceTag);
+                entity.AllianceId = findAllianceId.AllianceId;
                 ctx.Members.Add(entity);
                 return ctx.SaveChanges() == 1;
             }

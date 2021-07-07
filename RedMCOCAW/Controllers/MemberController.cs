@@ -38,7 +38,7 @@ namespace RedMCOCAW.Controllers
             MemberService service = CreateMemberService();
             if (service.CreateMember(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your Member was created.";
                 return RedirectToAction("Index");
             }
             else
@@ -108,7 +108,7 @@ namespace RedMCOCAW.Controllers
         {
             var svc = CreateMemberService();
             svc.DeleteMember(id);
-            TempData["SaveResult"] = "Your alliance was deleted";
+            TempData["SaveResult"] = "Your member was deleted";
             return RedirectToAction("Index");
         }
 

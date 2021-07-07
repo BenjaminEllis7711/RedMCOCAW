@@ -37,7 +37,7 @@ namespace RedMCOCAW.Controllers
             AllianceService service = CreateAllianceService();
             if (service.CreateAlliance(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your alliance was created.";
                 return RedirectToAction("Index");
             }
             else
