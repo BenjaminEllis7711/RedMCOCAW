@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllianceService.cs" />
+    <Compile Include="ChampionService.cs" />
+    <Compile Include="MemberService.cs" />
+    <Compile Include="NodeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

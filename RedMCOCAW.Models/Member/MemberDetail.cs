@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedMCOCAW.Models.Member
 {
-    public class MemberListItem
+    public class MemberDetail
     {
         [Required]
         public int MemberId { get; set; }
@@ -16,6 +16,6 @@ namespace RedMCOCAW.Models.Member
         [Required]
         public string Name { get; set; }
         public string Notes { get; set; }
-        
+        public List<string> ChampsOnRoster { get; set; } = new List<string>();
     }
 }
