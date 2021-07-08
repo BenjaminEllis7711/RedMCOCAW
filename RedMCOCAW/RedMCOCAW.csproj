@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AllianceController.cs" />
+    <Compile Include="Controllers\ChampionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -247,6 +248,10 @@
     <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Member\Detail.cshtml" />
     <Content Include="Views\Member\Delete.cshtml" />
+    <Content Include="Views\Champion\Index.cshtml" />
+    <Content Include="Views\Champion\Edit.cshtml" />
+    <Content Include="Views\Champion\Delete.cshtml" />
+    <Content Include="Views\Champion\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

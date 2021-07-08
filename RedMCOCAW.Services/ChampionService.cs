@@ -22,8 +22,7 @@ namespace RedMCOCAW.Services
         {
             var entity = new Champion()
             {
-                OwnerId = _userId,
-                ChampId = model.ChampId,
+                OwnerId = _userId,               
                 Name = model.Name
             };
 
