@@ -63,13 +63,7 @@ namespace RedMCOCAW.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ChampionListItem model)
         {
-            if (!ModelState.IsValid) return View(model);
-
-            if (model.ChampId != id)
-            {
-                ModelState.AddModelError("", "Id Mismatch");
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);           
 
             var svc = CreateChampionService();
             if (svc.EditChampion(model))
