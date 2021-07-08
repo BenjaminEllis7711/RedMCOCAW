@@ -22,7 +22,6 @@ namespace RedMCOCAW.Services
             var entity = new Node()
             {
                 OwnerId = _userId,
-                NodeId = model.NodeId,
                 Details = model.Details
             };
 

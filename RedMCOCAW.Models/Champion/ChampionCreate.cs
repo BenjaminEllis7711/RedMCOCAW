@@ -9,8 +9,7 @@ namespace RedMCOCAW.Models.Champion
 {
     public class ChampionCreate
     {
-                
-       
+                       
         [Required]
         public string Name { get; set; }
     }
