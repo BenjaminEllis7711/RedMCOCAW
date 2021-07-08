@@ -9,10 +9,8 @@ namespace RedMCOCAW.Models.Champion
 {
     public class ChampionCreate
     {
-        
-        public Guid OwnerId { get; set; }
-        [Required]
-        public int ChampId { get; set; }
+                
+       
         [Required]
         public string Name { get; set; }
     }
