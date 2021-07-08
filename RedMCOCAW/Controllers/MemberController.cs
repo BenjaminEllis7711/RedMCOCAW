@@ -51,10 +51,10 @@ namespace RedMCOCAW.Controllers
         {
             var svc = CreateMemberService();
             var detail = svc.GetMemberById(id);
-            var model = new MemberListItem
+            var model = new MemberEdit
             {
                 MemberId = detail.MemberId,
-                AllianceId = detail.AllianceId,
+                //AllianceId = detail.AllianceId,
                 Name = detail.Name,
                 Notes = detail.Notes
             };
@@ -63,7 +63,7 @@ namespace RedMCOCAW.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, MemberListItem model)
+        public ActionResult Edit(int id, MemberEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 

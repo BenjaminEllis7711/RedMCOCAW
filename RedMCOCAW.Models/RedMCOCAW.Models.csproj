@@ -50,6 +50,7 @@
     <Compile Include="Champion\ChampionListItem.cs" />
     <Compile Include="Member\MemberCreate.cs" />
     <Compile Include="Member\MemberDetail.cs" />
+    <Compile Include="Member\MemberEdit.cs" />
     <Compile Include="Member\MemberListItem.cs" />
     <Compile Include="NodeRoster\NodeRosterModel.cs" />
     <Compile Include="Node\NodeCreate.cs" />

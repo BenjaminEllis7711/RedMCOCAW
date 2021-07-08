@@ -35,14 +35,14 @@ namespace RedMCOCAW.Services
             }
         }
 
-        public bool EditMember(MemberListItem model)
+        public bool EditMember(MemberEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Members
-                    .Single(e => e.MemberId == model.MemberId);
+                    .Single(e => e.MemberId == model.MemberId && e.OwnerId == _userId);
 
                 entity.MemberId = model.MemberId;
                 entity.Name = model.Name;
@@ -100,7 +100,7 @@ namespace RedMCOCAW.Services
                 var entity =
                     ctx
                     .Members
-                    .Single(e => e.MemberId == id);
+                    .Single(e => e.MemberId == id && e.OwnerId == _userId);
                 ctx.Members.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
