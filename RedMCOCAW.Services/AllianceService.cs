@@ -75,6 +75,7 @@ namespace RedMCOCAW.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                List<string> MembersList = new List<string>();
                 var entity =
                     ctx
                     .Alliances
@@ -84,12 +85,12 @@ namespace RedMCOCAW.Services
                     {
                         AllianceId = entity.AllianceId,
                         AllianceTag = entity.AllianceTag,
-                        Notes = entity.Notes
-                        // Members
+                        Notes = entity.Notes,
+                        MembersOnTeam = entity.Members.Where(e => e.AllianceId == entity.AllianceId).Select(e => e.Name + "!!").ToList()
                     };
             }
         }
-
+                        
         public bool DeleteAlliance(int allianceId)
         {
             using (var ctx = new ApplicationDbContext())

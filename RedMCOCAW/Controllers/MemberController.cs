@@ -46,15 +46,28 @@ namespace RedMCOCAW.Controllers
             return View(model);
         }
 
-        // Get: Edit
+        // Get: Edit by member id
         public ActionResult Edit(int id)
         {
             var svc = CreateMemberService();
             var detail = svc.GetMemberById(id);
             var model = new MemberEdit
             {
+                MemberId = detail.MemberId,                
+                Name = detail.Name,
+                Notes = detail.Notes
+            };
+            return View(model);
+        }
+
+        // Get: Edit by name
+        public ActionResult Edit(string name)
+        {
+            var svc = CreateMemberService();
+            var detail = svc.GetMemberByName(name);
+            var model = new MemberEdit
+            {
                 MemberId = detail.MemberId,
-                //AllianceId = detail.AllianceId,
                 Name = detail.Name,
                 Notes = detail.Notes
             };

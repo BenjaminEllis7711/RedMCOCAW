@@ -93,6 +93,25 @@ namespace RedMCOCAW.Services
             }
         }
 
+        public MemberDetail GetMemberByName(string name)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Members
+                    .Single(e => e.Name == name);
+                return
+                    new MemberDetail
+                    {
+                        MemberId = entity.MemberId,
+                        AllianceId = entity.AllianceId,
+                        Name = entity.Name,
+                        Notes = entity.Notes
+                    };
+            }
+        }
+
         public bool DeleteMember(int id)
         {
             using (var ctx = new ApplicationDbContext())

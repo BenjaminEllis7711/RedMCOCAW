@@ -11,7 +11,7 @@ namespace RedMCOCAW.Models.Alliance
         public int AllianceId { get; set; }     
         public string AllianceTag { get; set; }
         public string Notes { get; set; }
-        public List<string> Members { get; set; }
+        public List<string> MembersOnTeam { get; set; }
 
     }
 }

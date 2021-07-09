@@ -7,7 +7,7 @@
 <h2>Detail</h2>
 
 <div>
-    <h4>AllianceDetail</h4>
+    <h4>Alliance Detail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -33,10 +33,28 @@
         <dd>
             @Html.DisplayFor(model => model.Notes)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MembersOnTeam)
+        </dt>
+        <dd>
+            @foreach (string name in Model.MembersOnTeam)
+            {
+                @Html.ActionLink(name, "Index", "Member")
+                <br />
+                @*@Html.ActionLink(
+                    linkText: name,
+                    actionName: "Detail",
+                    controllerName: "Member",
+                    routeValues: new { },
+                    htmlAttributes: new { name = name });*@
+            }
+        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AllianceId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AllianceId })  |
+    @Html.ActionLink("Add/Remove Members", "Index", "Member")  |
+
     @Html.ActionLink("Back to List", "Index")
 </p>

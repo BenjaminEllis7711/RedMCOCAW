@@ -20,7 +20,7 @@ namespace RedMCOCAW.Data
         public virtual Alliance Alliance { get; set; }
         [Required]
         public string Name { get; set; }
-        public string Notes { get; set; }
+        public string Notes { get; set; }        
         public virtual ICollection<Roster> Roster { get; set; }
     }
 }
