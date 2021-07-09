@@ -34,7 +34,7 @@ namespace RedMCOCAW.Services
             }
         }
 
-        public bool EditRoster(RosterDetail model)
+        public bool EditRoster(RosterEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -45,7 +45,7 @@ namespace RedMCOCAW.Services
 
                 entity.MemberId = model.MemberId;
                 entity.ChampionId = model.ChampionId;
-                entity.NodeAssignmentId = model.NodeAssignmentId;
+                entity.NodeAssignmentId = model.NodeAssignmentId;                
 
                 return ctx.SaveChanges() == 1;
             }
@@ -65,8 +65,7 @@ namespace RedMCOCAW.Services
                         {
                             MemberId = e.MemberId,
                             ChampionId = e.ChampionId,
-                            NodeAssignmentId = e.NodeAssignmentId,
-                            IsAssigned = e.IsAssigned
+                            NodeAssignmentId = e.NodeAssignmentId                            
                         });
                 return query.ToArray();
             }

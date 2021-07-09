@@ -176,6 +176,7 @@
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\NodeController.cs" />
     <Compile Include="Controllers\NodeRosterController.cs" />
+    <Compile Include="Controllers\RosterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -262,6 +263,11 @@
     <Content Include="Views\NodeRoster\Create.cshtml" />
     <Content Include="Views\NodeRoster\Edit.cshtml" />
     <Content Include="Views\NodeRoster\Delete.cshtml" />
+    <Content Include="Views\Roster\Index.cshtml" />
+    <Content Include="Views\Roster\Create.cshtml" />
+    <Content Include="Views\Roster\Detail.cshtml" />
+    <Content Include="Views\Roster\Edit.cshtml" />
+    <Content Include="Views\Roster\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
