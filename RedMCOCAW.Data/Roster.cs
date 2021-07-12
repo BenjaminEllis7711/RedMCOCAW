@@ -20,6 +20,7 @@ namespace RedMCOCAW.Data
         public virtual Champion Champion { get; set; }
         
         public int? NodeAssignmentId { get; set; }
+        public virtual NodeRoster NodeRoster { get; set; }
         
         [Required]
         public Guid OwnerId { get; set; }
