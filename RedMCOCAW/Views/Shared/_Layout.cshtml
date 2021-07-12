@@ -3,51 +3,65 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link rel="stylesheet" href="~/Content/Site.css" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body style="background-color:#fcbdc5;">
-    <div class="navbar navbar-expand navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+    <div class="mynav border border-danger">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbarimage border border-danger">
+            <div class="container-fluid">
+                <a class="navbar-brand btn btn-secondary" href="#">RED MCOCAW</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                @Html.ActionLink("Red MCOC AW", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>@Html.ActionLink("Alliance", "Index", "Alliance")</li>
-                        <li>@Html.ActionLink("Members", "Index", "Member")</li>
-                        <li>@Html.ActionLink("Rosters", "Index", "Roster")</li>
-                    }
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <div class="nav">
-                <p style="text-align: center; background-color: #cf0c0c; font-size:2em">&copy; @DateTime.Now.Year - Red MCOC AW</p>
-            </div>
-        </footer>
-    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-danger margin-right-5" aria-current="page" href="@Url.Action("Index", "Home")">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-danger margin-right-5" href="@Url.Action("About", "Home")">About</a>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        { // If user is logged in, show drop down menu with Alliance, Member, and Roster options
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle btn btn-danger" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Manage
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item btn-outline-danger" href="@Url.Action("Index", "Alliance")">Alliance</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item btn-outline-danger" href="@Url.Action("Index", "Alliance")">Members</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item btn-outline-danger" href="@Url.Action("Index", "Roster")">Rosters</a></li>
+                                </ul>                                
+                            </li>
+                        }
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a>
+                            </li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <div class="nav">
+                    <p style="text-align: center; background-color: #cf0c0c; font-size:2em">&copy; @DateTime.Now.Year - Red MCOC AW</p>
+                </div>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

@@ -1,6 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿body {    
     background-color: #fcbdc5;
 }
 
@@ -27,6 +25,14 @@ textarea {
 
 .margin-top-15 {
     margin-top: 15px;
+}
+
+.padding-right-5 {
+    padding: 0px 5px 0px 0px;
+}
+
+.margin-right-5 {
+    margin-right: 5px;
 }
 
 
