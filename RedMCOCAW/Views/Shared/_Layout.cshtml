@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @*<link rel="stylesheet" href="~/Content/Site.css" />*@
+    <link rel="stylesheet" href="~/Content/Site.css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body style="background-color:#fcbdc5;">
-    <div class="navbar navbar-inverse navbar-fixed-top navbar-dark">
+    <div class="navbar navbar-expand navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,7 +40,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <div class="navbar-fixed-bottom">
+            <div class="nav">
                 <p style="text-align: center; background-color: #cf0c0c; font-size:2em">&copy; @DateTime.Now.Year - Red MCOC AW</p>
             </div>
         </footer>
