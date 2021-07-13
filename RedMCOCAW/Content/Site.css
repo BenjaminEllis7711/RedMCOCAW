@@ -1,12 +1,12 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿body {    
+    background-color: #fcbdc5;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #fcbdc5;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -23,6 +23,7 @@ textarea {
     max-width: 280px;
 }
 
+<<<<<<< HEAD
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -52,6 +53,18 @@ textarea {
 
 .margin-top-15 {
     margin-top: 15px;
+=======
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.padding-right-5 {
+    padding: 0px 5px 0px 0px;
+}
+
+.margin-right-5 {
+    margin-right: 5px;
+>>>>>>> 6091b73b8218b2a95f08daa3537c67a486913207
 }
 
 
@@ -62,7 +75,14 @@ a.largeredbutton {
     color: red;
 }
 
+<<<<<<< HEAD
 /*.navbarimage {
     background-image: url("Images/ChampionsHeaderImage.jpg");
     max-height:300px;        
 }*/
+=======
+.navbarimage {
+    background-image: url("Images/ChampionsHeaderImage.jpg");
+    max-height:300px;        
+}
+>>>>>>> 6091b73b8218b2a95f08daa3537c67a486913207
