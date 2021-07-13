@@ -36,6 +36,12 @@ namespace RedMCOCAW.Controllers
             if (!ModelState.IsValid) return View(model);
 
             MemberService service = CreateMemberService();
+
+            if(service.IsMemberNameInAlliance(model.Name, model.AllianceTag))
+            {
+                ModelState.AddModelError("", "A member by that name already exists in that alliance.");
+                return View(model);
+            }
             if (service.CreateMember(model))
             {
                 TempData["SaveResult"] = "Your Member was created.";

@@ -26,9 +26,12 @@ namespace RedMCOCAW.Services
                 Notes = model.Notes
             };
 
+            
             using (var ctx = new ApplicationDbContext())
             {
-                var findAllianceId = ctx.Alliances.Single(e => e.AllianceTag == model.AllianceTag);
+                var findAllianceId = ctx.Alliances.SingleOrDefault(e => e.AllianceTag == model.AllianceTag && e.OwnerId == _userId);
+                if (findAllianceId == null)
+                    return false;                
                 entity.AllianceId = findAllianceId.AllianceId;
                 ctx.Members.Add(entity);
                 return ctx.SaveChanges() == 1;
@@ -122,6 +125,18 @@ namespace RedMCOCAW.Services
                     .Single(e => e.MemberId == id && e.OwnerId == _userId);
                 ctx.Members.Remove(entity);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        // Checking to see if member by that name already exists in alliance
+
+        public bool IsMemberNameInAlliance(string memberName, string allianceTag)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx
+                    .Members
+                    .Any(e => e.Name == memberName && e.Alliance.AllianceTag == allianceTag && e.OwnerId == _userId);
             }
         }
     }
