@@ -103,5 +103,16 @@ namespace RedMCOCAW.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        // Check to see if champion exists by Id, if does return
+        public bool DoesChampIdExist(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx
+                    .Champions
+                    .Any(e => e.ChampId == id);
+            };
+        }
     }
 }

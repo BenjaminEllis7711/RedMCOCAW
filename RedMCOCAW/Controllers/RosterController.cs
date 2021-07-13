@@ -34,9 +34,16 @@ namespace RedMCOCAW.Controllers
             if (!ModelState.IsValid) return View(model);
 
             RosterService service = CreateRosterService();
+
+            if(!service.DoesChampIdExist(model.ChampionId))
+            {
+                ModelState.AddModelError("", "There is no champion with that ID");
+                return View(model);
+            }
+
             if (service.CreateRoster(model))
             {
-                TempData["SaveResult"] = "Your alliance was created.";
+                TempData["SaveResult"] = "Your roster adjustment has been made.";
                 return RedirectToAction("Index");
             }
             else
@@ -53,7 +60,8 @@ namespace RedMCOCAW.Controllers
             {
                 MemberId = detail.MemberId,
                 ChampionId = detail.ChampionId,
-                NodeAssignmentId = detail.NodeAssignmentId
+                NodeAssignmentId = detail.NodeAssignmentId,
+                IsAssigned = detail.IsAssigned
                 
             };
             return View(model);
@@ -106,7 +114,7 @@ namespace RedMCOCAW.Controllers
         {
             var svc = CreateRosterService();
             svc.DeleteRosterByNodeAssignmentId(id);
-            TempData["SaveResult"] = "Your alliance was deleted";
+            TempData["SaveResult"] = "Your roster assignment was deleted";
             return RedirectToAction("Index");
         }
 
