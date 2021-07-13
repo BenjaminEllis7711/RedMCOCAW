@@ -1,30 +1,4 @@
-﻿body {    
-    background-color: #fcbdc5;
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: #fcbdc5;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-<<<<<<< HEAD
-body {
+﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: #fcbdc5;
@@ -53,20 +27,19 @@ textarea {
 
 .margin-top-15 {
     margin-top: 15px;
-=======
-.margin-top-15 {
-    margin-top: 15px;
 }
 
 .padding-right-5 {
     padding: 0px 5px 0px 0px;
 }
 
-.margin-right-5 {
-    margin-right: 5px;
->>>>>>> 6091b73b8218b2a95f08daa3537c67a486913207
+.margin-bottom-10 {
+    margin: 0px 0px 10px 0px;
 }
 
+.margin-right-5 {
+    margin-right: 5px;
+}
 
 a.largeredbutton {
     display: block;
@@ -75,14 +48,16 @@ a.largeredbutton {
     color: red;
 }
 
-<<<<<<< HEAD
-/*.navbarimage {
-    background-image: url("Images/ChampionsHeaderImage.jpg");
-    max-height:300px;        
-}*/
-=======
 .navbarimage {
     background-image: url("Images/ChampionsHeaderImage.jpg");
     max-height:300px;        
 }
->>>>>>> 6091b73b8218b2a95f08daa3537c67a486913207
+
+.drop-down-color-danger {
+    background-color: #dc3545;
+}
+
+.custom-toggler {    
+    background-color: #ffc107;
+}
+
