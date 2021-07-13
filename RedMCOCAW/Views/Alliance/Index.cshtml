@@ -9,14 +9,23 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@if (TempData.ContainsKey("SaveResult")) {
-<div class="alert alert-success fade in" role="alert">
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
-</div>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
 }
+<div class="row">
+    <div class="col-md-5">        
+            @Html.ActionLink("Test", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
+        </div>
+    <div class="col-md-5">
+            @Html.ActionLink("Test", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -27,31 +36,31 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MemberCount)
-    </th>
-    <th></th>
-</tr>
-
-@if (Model != null)
-{
-    foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AllianceId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AllianceTag)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MemberCount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.AllianceId }) |
-            @Html.ActionLink("Detail", "Detail", new { id = item.AllianceId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.AllianceId })
-        </td>
+        </th>
+        <th></th>
     </tr>
-}
-}
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllianceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllianceTag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberCount)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AllianceId }) |
+                    @Html.ActionLink("Detail", "Detail", new { id = item.AllianceId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AllianceId })
+                </td>
+            </tr>
+        }
+    }
 
 </table>
