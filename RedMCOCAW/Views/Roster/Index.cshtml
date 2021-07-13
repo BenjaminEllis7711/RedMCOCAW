@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.IsAssigned)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.NodeAssignmentId})
+            @Html.ActionLink("Edit", "Edit", new { id = item.MemberId, champId = item.ChampionId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MemberId, champId = item.ChampionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MemberId, champId = item.ChampionId })
         </td>
     </tr>
 }

@@ -71,14 +71,14 @@ namespace RedMCOCAW.Services
             }
         }
 
-        public RosterListItem GetRosterByMemberId(int id)
+        public RosterListItem GetRosterByMemberIdAndChampId(int id, int champId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Rosters
-                    .Single(e => e.MemberId == id);
+                    .Single(e => e.MemberId == id && e.ChampionId == champId);
                 return
                     new RosterListItem
                     {
@@ -112,6 +112,17 @@ namespace RedMCOCAW.Services
                 return ctx
                     .Champions
                     .Any(e => e.ChampId == id);
+            };
+        }
+
+        //Check to see if member exists by that Id
+        public bool DoesMemberIdExist(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx
+                    .Members
+                    .Any(e => e.MemberId == id && e.OwnerId == _userId);
             };
         }
     }
