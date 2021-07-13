@@ -65,7 +65,10 @@ namespace RedMCOCAW.Services
                         {
                             MemberId = e.MemberId,
                             ChampionId = e.ChampionId,
-                            NodeAssignmentId = e.NodeAssignmentId                            
+                            NodeAssignmentId = e.NodeAssignmentId,
+                            MemberName = e.Member.Name,
+                            ChampionName = e.Champion.Name                           
+                            
                         });
                 return query.ToArray();
             }
@@ -85,7 +88,9 @@ namespace RedMCOCAW.Services
                         MemberId = entity.MemberId,
                         ChampionId = entity.ChampionId,
                         NodeAssignmentId = entity.NodeAssignmentId,
-                        IsAssigned = entity.IsAssigned
+                        IsAssigned = entity.IsAssigned,
+                        MemberName = entity.Member.Name,
+                        ChampionName = entity.Champion.Name                        
                     };
             }
         }
