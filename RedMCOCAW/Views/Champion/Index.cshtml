@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<RedMCOCAW.Models.Champion.ChampionListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Champion List";
 }
 
-<h2>Index</h2>
+<div class="col-12 text-center"><h2>Champion List</h2></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -44,5 +41,6 @@
             </td>
         </tr>
     }
+    
 
 </table>

@@ -306,7 +306,6 @@
     <Content Include="Views\Roster\Detail.cshtml" />
     <Content Include="Views\Roster\Edit.cshtml" />
     <Content Include="Views\Roster\Delete.cshtml" />
-    <Content Include="Views\Roster\_MemberChampGetter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
