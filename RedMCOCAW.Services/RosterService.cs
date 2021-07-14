@@ -41,7 +41,7 @@ namespace RedMCOCAW.Services
                 var entity =
                     ctx
                     .Rosters
-                    .Single(e => e.MemberId == model.MemberId);
+                    .Single(e => e.MemberId == model.MemberId && e.ChampionId == model.ChampionId);
 
                 entity.MemberId = model.MemberId;
                 entity.ChampionId = model.ChampionId;
@@ -128,6 +128,17 @@ namespace RedMCOCAW.Services
                 return ctx
                     .Members
                     .Any(e => e.MemberId == id && e.OwnerId == _userId);
+            };
+        }
+
+        // Check to see if this member already has that champion assigned
+        public bool DoesMemberAlreadyHaveChampOnRoster(int memberId, int champId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx
+                    .Rosters
+                    .Any(e => e.MemberId == memberId && e.ChampionId == champId);
             };
         }
     }

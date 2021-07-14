@@ -39,7 +39,7 @@
         <dd>
             @foreach (string name in Model.MembersOnTeam)
             {
-                @Html.ActionLink(name, "Index", "Member")
+                @Html.ActionLink(name, "Index", "Member", new { @class = "btn btn-secondary margin-bottom-10" })
                 <br />
                 @*@Html.ActionLink(
                     linkText: name,
