@@ -15,6 +15,7 @@
         @TempData["SaveResult"]
     </div>
 }
+
 <table class="table">
     <tr>
         <th>
@@ -36,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.Details)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.NodeId }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.NodeId }, new { @class = "btn btn-danger" })
                 @Html.ActionLink("Delete", "Delete", new { id = item.NodeId }, new { @class = "btn btn-danger" })
             </td>
         </tr>
@@ -44,6 +45,9 @@
 
 
 </table>
-<div class="d-grid gap-2">
-    <a type="button" class="btn btn-lg btn-danger" href="@Url.Action("Create", "Node")">Create A New Node</a>
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="d-grid gap-2">
+        <a type="button" class="btn btn-lg btn-danger" href="@Url.Action("Create", "Node")">Create A New Node</a>
+    </div>
+}
