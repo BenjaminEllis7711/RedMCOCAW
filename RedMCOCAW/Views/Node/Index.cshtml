@@ -4,11 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="col-12 text-center"><h2>Node List</h2></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -20,19 +26,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NodeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.NodeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.NodeId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NodeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.NodeId }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.NodeId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
 
 </table>
+<div class="d-grid gap-2">
+    <a type="button" class="btn btn-lg btn-danger" href="@Url.Action("Create", "Node")">Create A New Node</a>
+</div>

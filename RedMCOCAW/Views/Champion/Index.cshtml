@@ -36,11 +36,14 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ChampId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ChampId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ChampId }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ChampId }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
     
 
 </table>
+<div class="d-grid gap-2">
+    <a type="button" class="btn btn-lg btn-danger" href="@Url.Action("Create", "Champion")">Create A New Champion</a>
+</div>
