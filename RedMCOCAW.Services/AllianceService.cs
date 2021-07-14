@@ -86,7 +86,7 @@ namespace RedMCOCAW.Services
                         AllianceId = entity.AllianceId,
                         AllianceTag = entity.AllianceTag,
                         Notes = entity.Notes,
-                        MembersOnTeam = entity.Members.Where(e => e.AllianceId == entity.AllianceId).Select(e => e.Name + "!!").ToList()
+                        MembersOnTeam = entity.Members.Where(e => e.AllianceId == entity.AllianceId).Select(e => e.Name).ToList()
                     };
             }
         }
