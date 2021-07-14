@@ -16,6 +16,7 @@ namespace RedMCOCAW.Models.Member
         [Required]
         public string Name { get; set; }
         public string Notes { get; set; }
-        
+        public string AllianceTag { get; set; }
+
     }
 }

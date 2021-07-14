@@ -70,7 +70,9 @@ namespace RedMCOCAW.Services
                             MemberId = e.MemberId,
                             AllianceId = e.AllianceId,
                             Name = e.Name,
-                            Notes = e.Notes
+                            Notes = e.Notes,
+                            AllianceTag = e.Alliance.AllianceTag
+                            
 
                         });
                 return query.ToArray();
