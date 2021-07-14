@@ -34,9 +34,22 @@ namespace RedMCOCAW.Controllers
             if (!ModelState.IsValid) return View(model);
 
             RosterService service = CreateRosterService();
+
+            if(!service.DoesChampIdExist(model.ChampionId))
+            {
+                ModelState.AddModelError("", "There is no champion with that ID");
+                return View(model);
+            }
+
+            if (!service.DoesMemberIdExist(model.ChampionId))
+            {
+                ModelState.AddModelError("", "There is no member with that ID in your alliances.");
+                return View(model);
+            }
+
             if (service.CreateRoster(model))
             {
-                TempData["SaveResult"] = "Your alliance was created.";
+                TempData["SaveResult"] = "Your roster adjustment has been made.";
                 return RedirectToAction("Index");
             }
             else
@@ -45,20 +58,21 @@ namespace RedMCOCAW.Controllers
         }
 
         // Get: Edit
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int champId)
         {
             var svc = CreateRosterService();
-            var detail = svc.GetRosterByMemberId(id);
+            var detail = svc.GetRosterByMemberIdAndChampId(id, champId);
             var model = new RosterEdit
             {
                 MemberId = detail.MemberId,
                 ChampionId = detail.ChampionId,
-                NodeAssignmentId = detail.NodeAssignmentId
+                NodeAssignmentId = detail.NodeAssignmentId,
+                IsAssigned = detail.IsAssigned
                 
             };
             return View(model);
         }
-
+               
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, RosterEdit model)
@@ -82,19 +96,19 @@ namespace RedMCOCAW.Controllers
             return View(model);
         }
 
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int id, int champId)
         {
             var svc = CreateRosterService();
-            var model = svc.GetRosterByMemberId(id);
+            var model = svc.GetRosterByMemberIdAndChampId(id, champId);
 
             return View(model);
         }
 
         [ActionName("Delete")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, int champId)
         {
             var svc = CreateRosterService();
-            var model = svc.GetRosterByMemberId(id);
+            var model = svc.GetRosterByMemberIdAndChampId(id, champId);
 
             return View(model);
         }
@@ -106,7 +120,7 @@ namespace RedMCOCAW.Controllers
         {
             var svc = CreateRosterService();
             svc.DeleteRosterByNodeAssignmentId(id);
-            TempData["SaveResult"] = "Your alliance was deleted";
+            TempData["SaveResult"] = "Your roster assignment was deleted";
             return RedirectToAction("Index");
         }
 

@@ -36,6 +36,12 @@ namespace RedMCOCAW.Controllers
             if (!ModelState.IsValid) return View(model);
 
             MemberService service = CreateMemberService();
+
+            if(service.IsMemberNameInAlliance(model.Name, model.AllianceTag))
+            {
+                ModelState.AddModelError("", "A member by that name already exists in that alliance.");
+                return View(model);
+            }
             if (service.CreateMember(model))
             {
                 TempData["SaveResult"] = "Your Member was created.";
@@ -59,21 +65,7 @@ namespace RedMCOCAW.Controllers
             };
             return View(model);
         }
-
-        // Get: Edit by name
-        public ActionResult Edit(string name)
-        {
-            var svc = CreateMemberService();
-            var detail = svc.GetMemberByName(name);
-            var model = new MemberEdit
-            {
-                MemberId = detail.MemberId,
-                Name = detail.Name,
-                Notes = detail.Notes
-            };
-            return View(model);
-        }
-
+                
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, MemberEdit model)

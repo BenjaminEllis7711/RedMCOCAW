@@ -9,43 +9,58 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.MemberId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.MemberName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ChampionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChampionName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NodeAssignmentId)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsAssigned)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MemberId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChampionId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NodeAssignmentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAssigned)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MemberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.NodeAssignmentId})
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChampionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChampionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NodeAssignmentId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MemberId, champId = item.ChampionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MemberId, champId = item.ChampionId })
+            </td>
+        </tr>
+    }
 
 </table>

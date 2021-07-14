@@ -1,14 +1,20 @@
 ﻿@model IEnumerable<RedMCOCAW.Models.Champion.ChampionListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Champion List";
 }
 
-<h2>Index</h2>
+<div class="col-12 text-center"><h2>Champion List</h2></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -20,19 +26,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChampId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ChampId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ChampId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChampId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ChampId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ChampId })
+            </td>
+        </tr>
+    }
+    
 
 </table>

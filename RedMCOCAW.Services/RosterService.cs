@@ -65,27 +65,32 @@ namespace RedMCOCAW.Services
                         {
                             MemberId = e.MemberId,
                             ChampionId = e.ChampionId,
-                            NodeAssignmentId = e.NodeAssignmentId                            
+                            NodeAssignmentId = e.NodeAssignmentId,
+                            MemberName = e.Member.Name,
+                            ChampionName = e.Champion.Name                           
+                            
                         });
                 return query.ToArray();
             }
         }
 
-        public RosterListItem GetRosterByMemberId(int id)
+        public RosterListItem GetRosterByMemberIdAndChampId(int id, int champId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Rosters
-                    .Single(e => e.MemberId == id);
+                    .Single(e => e.MemberId == id && e.ChampionId == champId);
                 return
                     new RosterListItem
                     {
                         MemberId = entity.MemberId,
                         ChampionId = entity.ChampionId,
                         NodeAssignmentId = entity.NodeAssignmentId,
-                        IsAssigned = entity.IsAssigned
+                        IsAssigned = entity.IsAssigned,
+                        MemberName = entity.Member.Name,
+                        ChampionName = entity.Champion.Name                        
                     };
             }
         }
@@ -102,6 +107,28 @@ namespace RedMCOCAW.Services
                 ctx.Rosters.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        // Check to see if champion exists by Id, if does return
+        public bool DoesChampIdExist(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx
+                    .Champions
+                    .Any(e => e.ChampId == id);
+            };
+        }
+
+        //Check to see if member exists by that Id
+        public bool DoesMemberIdExist(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx
+                    .Members
+                    .Any(e => e.MemberId == id && e.OwnerId == _userId);
+            };
         }
     }
 }
