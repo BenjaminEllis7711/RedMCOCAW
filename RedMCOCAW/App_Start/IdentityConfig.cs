@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using RedMCOCAW.Data;
 using RedMCOCAW.Models;
 
 namespace RedMCOCAW

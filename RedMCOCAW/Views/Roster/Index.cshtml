@@ -1,0 +1,67 @@
+﻿@model IEnumerable<RedMCOCAW.Models.Roster.RosterListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center"><h2>List of Member's Champions with Node Assignments</h2></div>
+
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChampionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChampionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NodeAssignmentId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChampionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChampionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NodeAssignmentId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MemberId, champId = item.ChampionId }, new { @class = "btn btn-danger" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.MemberId, champId = item.ChampionId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="col-12 d-grid gap-2">
+    @Html.ActionLink("Add Champion to a Member's Roster", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
+</div>

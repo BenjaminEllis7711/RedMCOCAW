@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RedMCOCAW.Models.Alliance.AllianceListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center"><h2>Your Alliances</h2></div>
+
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AllianceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AllianceTag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberCount)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllianceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllianceTag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberCount)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AllianceId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Detail", "Detail", new { id = item.AllianceId }, new { @class = "btn btn-danger" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AllianceId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+<div class="col-12 d-grid gap-2">
+    @Html.ActionLink("Create New Alliance", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
+</div>

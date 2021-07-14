@@ -1,0 +1,50 @@
+﻿@model RedMCOCAW.Models.Member.MemberDetail
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>MemberDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllianceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllianceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  memberId = Model.MemberId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

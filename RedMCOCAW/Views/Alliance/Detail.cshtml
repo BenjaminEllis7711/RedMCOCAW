@@ -1,0 +1,58 @@
+﻿@model RedMCOCAW.Models.Alliance.AllianceDetail
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div class="text-center"><h2>Details</h2></div>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AllianceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllianceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllianceTag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AllianceTag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MembersOnTeam)
+        </dt>
+        <dd>
+            @foreach (string name in Model.MembersOnTeam)
+            {
+                @Html.ActionLink(name, "Index", "Member", new { @class = "btn btn-secondary margin-bottom-10" })
+                <br />
+                @*@Html.ActionLink(
+                    linkText: name,
+                    actionName: "Detail",
+                    controllerName: "Member",
+                    routeValues: new { },
+                    htmlAttributes: new { name = name });*@
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AllianceId }, new { @class = "btn btn-danger" })  
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger" })
+</p>

@@ -1,12 +1,14 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #fcbdc5;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #fcbdc5;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +24,40 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.padding-right-5 {
+    padding: 0px 5px 0px 0px;
+}
+
+.margin-bottom-10 {
+    margin: 0px 0px 10px 0px;
+}
+
+.margin-right-5 {
+    margin-right: 5px;
+}
+
+a.largeredbutton {
+    display: block;
+    width: 150px;
+    height: 150px;
+    color: red;
+}
+
+.navbarimage {
+    background-image: url("Images/ChampionsHeaderImage.jpg");
+    max-height:300px;        
+}
+
+.drop-down-color-danger {
+    background-color: #dc3545;
+}
+
+.custom-toggler {    
+    background-color: #ffc107;
+}
+
