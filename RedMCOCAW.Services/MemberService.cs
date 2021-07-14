@@ -41,7 +41,7 @@ namespace RedMCOCAW.Services
         public bool EditMember(MemberEdit model)
         {
             using (var ctx = new ApplicationDbContext())
-            {
+            {                                
                 var entity =
                     ctx
                     .Members
@@ -50,6 +50,7 @@ namespace RedMCOCAW.Services
                 entity.MemberId = model.MemberId;
                 entity.Name = model.Name;
                 entity.Notes = model.Notes;
+                entity.AllianceId = model.AllianceId;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -93,7 +94,9 @@ namespace RedMCOCAW.Services
                         MemberId = entity.MemberId,
                         AllianceId = entity.AllianceId,
                         Name = entity.Name,
-                        Notes = entity.Notes                        
+                        Notes = entity.Notes,
+                        
+                        
                     };
             }
         }
@@ -139,6 +142,16 @@ namespace RedMCOCAW.Services
                 return ctx
                     .Members
                     .Any(e => e.Name == memberName && e.Alliance.AllianceTag == allianceTag && e.OwnerId == _userId);
+            }
+        }
+
+        public bool DoesAllianceExistForMemberEdit(int allianceId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                return ctx
+                    .Members
+                    .Any(e => e.AllianceId == allianceId && e.OwnerId == _userId);
             }
         }
     }

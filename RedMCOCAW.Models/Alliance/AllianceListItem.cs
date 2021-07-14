@@ -11,7 +11,11 @@ namespace RedMCOCAW.Models.Alliance
     public class AllianceListItem
     {
         [Required]
-        public int AllianceId { get; set; }        
+        [Display(Name = "Alliance Id #")]
+
+        public int AllianceId { get; set; }    
+        [Display(Name ="Alliance/Battlegroup Tag")]
+
         public string AllianceTag { get; set; }
         public string Notes { get; set; }
         [Display(Name = "Number of Members in Alliance")]

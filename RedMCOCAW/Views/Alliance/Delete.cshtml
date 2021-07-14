@@ -4,11 +4,11 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="text-center"><h2>Delete</h2></div>
 
 <h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>AllianceDetail</h4>
+<h4>WARNING: Deleting an alliance will also delete all members in alliance</h4>
+<div>    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -42,7 +42,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-dark" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger" })
         </div>
     }
 </div>

@@ -22,8 +22,7 @@ namespace RedMCOCAW.Data
         public int? NodeAssignmentId { get; set; }
                 
         [Required]
-        public Guid OwnerId { get; set; }
-
+        public Guid OwnerId { get; set; }        
         public bool IsAssigned
         {
             get

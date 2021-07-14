@@ -11,10 +11,8 @@ namespace RedMCOCAW.Models.Member
     {
         [Required]
         public int MemberId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
-        public string AllianceTag { get; set; }
+        [Required]       
+        public int AllianceId { get; set; }
         [Required]
         public string Name { get; set; }
         public string Notes { get; set; }

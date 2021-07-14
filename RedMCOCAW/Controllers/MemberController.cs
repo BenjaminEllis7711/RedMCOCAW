@@ -59,7 +59,8 @@ namespace RedMCOCAW.Controllers
             var detail = svc.GetMemberById(id);
             var model = new MemberEdit
             {
-                MemberId = detail.MemberId,                
+                MemberId = detail.MemberId, 
+                AllianceId = detail.AllianceId,
                 Name = detail.Name,
                 Notes = detail.Notes
             };
@@ -79,6 +80,11 @@ namespace RedMCOCAW.Controllers
             }
 
             var svc = CreateMemberService();
+            if (!svc.DoesAllianceExistForMemberEdit(model.AllianceId))
+            {
+                ModelState.AddModelError("", "You do not own an alliance by that ID");
+                return View(model);
+            }
             if (svc.EditMember(model))
             {
                 TempData["SaveResult"] = "Your member was updated.";
