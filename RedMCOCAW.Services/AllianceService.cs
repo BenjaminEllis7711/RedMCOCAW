@@ -65,7 +65,7 @@ namespace RedMCOCAW.Services
                             AllianceId = e.AllianceId,
                             AllianceTag = e.AllianceTag,
                             Notes = e.Notes,
-                            MemberCount = e.Members.Count() + 1
+                            MemberCount = e.Members.Count()
                         }) ;
                 return query.ToArray();
             }

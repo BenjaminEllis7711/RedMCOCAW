@@ -41,9 +41,15 @@ namespace RedMCOCAW.Controllers
                 return View(model);
             }
 
-            if (!service.DoesMemberIdExist(model.ChampionId))
+            if (!service.DoesMemberIdExist(model.MemberId))
             {
                 ModelState.AddModelError("", "There is no member with that ID in your alliances.");
+                return View(model);
+            }
+
+            if (service.DoesMemberAlreadyHaveChampOnRoster(model.MemberId, model.ChampionId))
+            {
+                ModelState.AddModelError("", "That member already has that champion assigned to his roster.");
                 return View(model);
             }
 

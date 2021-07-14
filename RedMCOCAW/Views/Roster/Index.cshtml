@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="text-center"><h2>List of Member's Champions with Node Assignments</h2></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -57,10 +55,13 @@
                 @Html.DisplayFor(modelItem => item.NodeAssignmentId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MemberId, champId = item.ChampionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MemberId, champId = item.ChampionId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.MemberId, champId = item.ChampionId }, new { @class = "btn btn-danger" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.MemberId, champId = item.ChampionId }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
 
 </table>
+<div class="col-12 d-grid gap-2">
+    @Html.ActionLink("Add Champion to a Member's Roster", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
+</div>

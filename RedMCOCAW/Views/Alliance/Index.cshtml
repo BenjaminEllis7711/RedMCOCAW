@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="text-center"><h2>Your Alliances</h2></div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -18,14 +16,7 @@
         @TempData["SaveResult"]
     </div>
 }
-<div class="row">
-    <div class="col-md-5">        
-            @Html.ActionLink("Test", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
-        </div>
-    <div class="col-md-5">
-            @Html.ActionLink("Test", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
-    </div>
-</div>
+
 <table class="table">
     <tr>
         <th>
@@ -55,12 +46,16 @@
                     @Html.DisplayFor(modelItem => item.MemberCount)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.AllianceId }) |
-                    @Html.ActionLink("Detail", "Detail", new { id = item.AllianceId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.AllianceId })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AllianceId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Detail", "Detail", new { id = item.AllianceId }, new { @class = "btn btn-danger" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AllianceId }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
     }
 
 </table>
+
+<div class="col-12 d-grid gap-2">
+    @Html.ActionLink("Create New Alliance", "Create", null, new { @class = "btn btn-danger btn-lg btn-block" })
+</div>

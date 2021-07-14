@@ -13,6 +13,7 @@ namespace RedMCOCAW.Models.Roster
         public int MemberId { get; set; }
         [Required]
         public int ChampionId { get; set; }
+        [Display(Name ="Node Id")]
         public int? NodeAssignmentId { get; set; }
         public bool IsAssigned { get; set; }
     }
